@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 17:54:30 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/19 21:22:38 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:24:23 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,65 @@ int	stack_len(t_stack *a)
 		node = node->next;
 	}
 	return (i);
+}
+
+t_stack	*min_node(t_stack *a)
+{
+	t_stack	*min;
+	t_stack	*node;
+
+	node = a;
+	min = a;
+	while (node != NULL)
+	{
+		if (min->value > node->value)
+			min = node;
+		node = node->next;
+	}
+	return (min);
+}
+
+t_stack	*max_node(t_stack *a)
+{
+	t_stack	*max;
+	t_stack	*node;
+
+	node = a;
+	max = a;
+	while (node != NULL)
+	{
+		if (max->value < node->value)
+			max = node;
+		node = node->next;
+	}
+	return (max);
+}
+
+void	print_stack(t_stack *a, t_stack *b)
+{
+	t_stack	*nodea;
+	t_stack	*nodeb;
+
+	nodea = a;
+	nodeb = b;
+	if (a)
+	{
+		printf("Stack A : ");
+		while (nodea->next != NULL)
+		{
+			printf("%d, ", nodea->value);
+			nodea = nodea->next;
+		}
+		printf("%d\n", nodea->value);
+	}
+	if (b)
+	{
+		printf("Stack B : ");
+		while (nodeb->next != NULL)
+		{
+			printf("%d, ", nodeb->value);
+			nodeb = nodeb->next;
+		}
+		printf("%d\n", nodeb->value);
+	}
 }
