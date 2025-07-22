@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small.c                                       :+:      :+:    :+:   */
+/*   push_cost.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 13:38:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/22 14:49:56 by ocviller         ###   ########.fr       */
+/*   Created: 2025/07/22 16:32:58 by ocviller          #+#    #+#             */
+/*   Updated: 2025/07/22 17:42:39 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_three(t_stack **a)
+void	set_target(t_stack *node, t_stack **b)
 {
-	t_stack	*max;
-	t_stack	*min;
+	t_stack	*b_node;
 
-	max = max_node(*a);
-	min = min_node(*a);
-	if (max->index == 2)
-		sa(a);
-	else if (max->index == 0 && min->index == 1)
-		ra(a);
-	else if (min->index == 0 && max->index == 1)
+	b_node = *b;
+	while (b_node != NULL)
 	{
-		sa(a);
-		ra(a);
+		if (node->value < b_node->value)
+			node->target = b_node;
+		if (node->target)
+			if (node->target->value < b_node->value
+				&& node->value < b_node->value)
+				node->target = b_node;
+		b_node = b_node->next;
 	}
-	else if (min->index == 2 && max->index == 1)
-		rra(a);
-	else if (max->index == 0 && min->index == 2)
-	{
-		ra(a);
-		sa(a);
-	}
+	if (!node->target)
+		node->target = max_node(*b);
 }
+
+// int push_cost(t_stack **a, t_stack **b)
+// {
+
+// }

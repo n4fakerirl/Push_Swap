@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:35:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/22 14:01:11 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:42:25 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,13 @@ void				rrr(t_stack **a, t_stack **b);
 void				pa(t_stack **a, t_stack **b);
 void				pb(t_stack **a, t_stack **b);
 t_stack				*min_node(t_stack *a);
-t_stack *max_node(t_stack *a);
-void sort_three(t_stack **a);
-void put_index(t_stack **stack);
-void print_stack(t_stack *a, t_stack *b);
+t_stack				*max_node(t_stack *a);
+void				sort_three(t_stack **a);
+void				set_median(t_stack **stack);
+void				print_stack(t_stack *a, t_stack *b);
+void				print_stack2(t_stack *a);
+void				sort_stacks(t_stack **stack_a, t_stack **b);
+void				set_target(t_stack *node, t_stack **b);
+void				print_target(t_stack *a);
 
 #endif

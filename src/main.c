@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:53:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/22 14:12:02 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:31:32 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int	main(int ac, char **av)
 	{
 		av = ft_split(av[1], ' ');
 		if (!av)
-			return (ft_free(av), 1);
+			return (1);
 	}
 	init_stack_a(&a, av + 1);
 	if (!a)
-		return (printf("Erreur\n"), -1);
-	put_index(&a);
+		return (printf("Erreur\n"), 1);
+	set_median(&a);
 	print_stack(a, b);
 	if (!stack_sorted(a))
 	{
@@ -38,11 +38,10 @@ int	main(int ac, char **av)
 			sa(&a);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
-		print_stack(a, b);
+		else
+			sort_stacks(&a, &b);
 	}
-	//     else
-	//         sort_stacks(&a, &b);
-	// }
+	print_target(a);
 	free_errors(&a);
 	free_errors(&b);
 }
