@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:32:58 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 20:24:57 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:39:53 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	move_a_to_b(t_stack **a, t_stack **b)
 	pb(a, b);
 }
 
-void move_b_to_a(t_stack **a, t_stack **b)
+void	move_b_to_a(t_stack **a, t_stack **b)
 {
 	prep_for_push(a, (*b)->target, 'a');
 	pa(a, b);
 }
 
-void min_on_top(t_stack **a)
+void	min_on_top(t_stack **a)
 {
 	while ((*a)->value != min_node(*a)->value)
 	{

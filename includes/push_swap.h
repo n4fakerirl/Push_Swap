@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:35:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 19:57:47 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:38:37 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void				move_a_to_b(t_stack **a, t_stack **b);
 void				rotate_both(t_stack **a, t_stack **b, t_stack *cheap);
 void				rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheap);
 void				prep_for_push(t_stack **stack, t_stack *top, char name);
-void	init_nodes_b(t_stack *a, t_stack *b);
+void				init_nodes_b(t_stack *a, t_stack *b);
 
 // DELETE
 void				print_stack(t_stack *a, t_stack *b);

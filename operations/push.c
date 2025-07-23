@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:29:34 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 20:24:41 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:38:53 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	push(t_stack **from, t_stack **to)
 	t_stack	*first_to;
 
 	if (!from || !*from)
-		return;
+		return ;
 	first_from = *from;
 	second_from = first_from->next;
 	*from = second_from;

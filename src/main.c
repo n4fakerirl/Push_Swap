@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:53:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 20:26:10 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:36:34 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ int	main(int ac, char **av)
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (1);
 	else if (ac == 2)
-	{
 		av = ft_split(av[1], ' ');
-		if (!av)
-			return (1);
-	}
+	if (!av)
+		return (1);
 	init_stack_a(&a, av + 1);
 	if (!a)
 		return (printf("Erreur\n"), 1);
@@ -39,7 +37,6 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&a, &b);
 	}
-	print_stack(a, b);
 	free_errors(&a);
 	free_errors(&b);
 }

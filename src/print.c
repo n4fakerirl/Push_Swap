@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:17:53 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 19:45:21 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:41:03 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	print_stack(t_stack *a, t_stack *b)
 	}
 }
 
-void	print_stack2(t_stack *a, t_stack *b)
+/*void	print_stack2(t_stack *a, t_stack *b)
 {
 	t_stack	*node;
-	t_stack *node2;
+	t_stack	*node2;
 
 	node = a;
 	node2 = b;
@@ -72,7 +72,7 @@ void	print_stack2(t_stack *a, t_stack *b)
 		printf("%d : [%d] | %d\n", node2->value, node2->index,
 			node2->above_median);
 	}
-}
+}*/
 
 void	print_target(t_stack *a)
 {
@@ -106,7 +106,8 @@ void	print_cost(t_stack *a)
 		while (node->next != NULL)
 		{
 			if (node->target)
-				printf("Valeur : %d, Push_Cost : %d\n", node->value, node->push_cost);
+				printf("Valeur : %d, Push_Cost : %d\n", node->value,
+					node->push_cost);
 			node = node->next;
 		}
 		if (node->target)

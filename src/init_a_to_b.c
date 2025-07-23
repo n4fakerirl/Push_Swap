@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:33:19 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 20:02:44 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:37:55 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void	set_median(t_stack *stack)
 	}
 }
 
-void set_target(t_stack *a, t_stack *b)
+void	set_target(t_stack *a, t_stack *b)
 {
-	t_stack *current_a;
-	t_stack *current_b;
-	t_stack *best_target;
+	t_stack	*current_a;
+	t_stack	*current_b;
+	t_stack	*best_target;
 
 	current_a = a;
 	while (current_a)
@@ -62,9 +62,9 @@ void set_target(t_stack *a, t_stack *b)
 
 void	push_cost(t_stack *a, t_stack *b)
 {
-	int	len_a;
-	int	len_b;
-	t_stack *node;
+	int		len_a;
+	int		len_b;
+	t_stack	*node;
 
 	node = a;
 	len_a = stack_len(a);
@@ -80,22 +80,6 @@ void	push_cost(t_stack *a, t_stack *b)
 			node->push_cost += len_b - node->target->index;
 		node = node->next;
 	}
-}
-
-t_stack	*find_cheapest(t_stack *a)
-{
-	t_stack	*node;
-	t_stack	*cheapest_node;
-
-	node = a;
-	cheapest_node = node;
-	while (node != NULL)
-	{
-		if (node->push_cost < cheapest_node->push_cost)
-			cheapest_node = node;
-		node = node->next;
-	}
-	return (cheapest_node);
 }
 
 void	init_nodes_a(t_stack *a, t_stack *b)
