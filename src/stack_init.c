@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:31:30 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/19 21:21:49 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:17:15 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,25 @@ t_stack	**init_stack_a(t_stack **a, char **av)
 		y++;
 	}
 	return (a);
+}
+
+void prep_for_push(t_stack **stack, t_stack *top, char name)
+{
+	while (*stack != top)
+	{
+		if (name == 'a')
+		{
+			if (top->above_median == 1)
+				ra(stack);
+			else
+				rra(stack);
+		}
+		else if (name == 'b')
+		{
+			if (top->above_median == 1)
+				rb(stack);
+			else
+				rrb(stack);
+		}
+	}
 }

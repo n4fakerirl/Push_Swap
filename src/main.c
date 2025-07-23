@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:53:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/22 17:31:32 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:26:10 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	main(int ac, char **av)
 	init_stack_a(&a, av + 1);
 	if (!a)
 		return (printf("Erreur\n"), 1);
-	set_median(&a);
-	print_stack(a, b);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
@@ -41,7 +39,7 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&a, &b);
 	}
-	print_target(a);
+	print_stack(a, b);
 	free_errors(&a);
 	free_errors(&b);
 }

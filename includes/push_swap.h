@@ -6,15 +6,15 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:35:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/22 17:42:25 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 19:57:47 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/ft_printf/ft_printf.h"
-# include "libft/libft.h"
+# include "./libft/ft_printf/ft_printf.h"
+# include "./libft/libft.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdlib.h>
@@ -57,11 +57,23 @@ void				pb(t_stack **a, t_stack **b);
 t_stack				*min_node(t_stack *a);
 t_stack				*max_node(t_stack *a);
 void				sort_three(t_stack **a);
-void				set_median(t_stack **stack);
-void				print_stack(t_stack *a, t_stack *b);
-void				print_stack2(t_stack *a);
+void				set_median(t_stack *stack);
 void				sort_stacks(t_stack **stack_a, t_stack **b);
-void				set_target(t_stack *node, t_stack **b);
+void				set_target(t_stack *node, t_stack *b);
+void				push_cost(t_stack *a, t_stack *b);
+t_stack				*find_cheapest(t_stack *a);
+void				current_index(t_stack *stack);
+void				init_nodes_a(t_stack *a, t_stack *b);
+void				move_a_to_b(t_stack **a, t_stack **b);
+void				rotate_both(t_stack **a, t_stack **b, t_stack *cheap);
+void				rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheap);
+void				prep_for_push(t_stack **stack, t_stack *top, char name);
+void	init_nodes_b(t_stack *a, t_stack *b);
+
+// DELETE
+void				print_stack(t_stack *a, t_stack *b);
+void				print_stack2(t_stack *a, t_stack *b);
+void				print_cost(t_stack *a);
 void				print_target(t_stack *a);
 
 #endif

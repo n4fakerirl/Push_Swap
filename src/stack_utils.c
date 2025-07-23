@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 17:54:30 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/22 17:42:48 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 16:17:45 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,73 +77,4 @@ t_stack	*max_node(t_stack *a)
 		node = node->next;
 	}
 	return (max);
-}
-
-void	print_stack(t_stack *a, t_stack *b)
-{
-	t_stack	*nodea;
-	t_stack	*nodeb;
-
-	nodea = a;
-	nodeb = b;
-	if (a)
-	{
-		printf("Stack A : ");
-		while (nodea->next != NULL)
-		{
-			printf("%d, ", nodea->value);
-			nodea = nodea->next;
-		}
-		printf("%d\n", nodea->value);
-	}
-	if (b)
-	{
-		printf("Stack B : ");
-		while (nodeb->next != NULL)
-		{
-			printf("%d, ", nodeb->value);
-			nodeb = nodeb->next;
-		}
-		printf("%d\n", nodeb->value);
-	}
-}
-
-void	print_stack2(t_stack *a)
-{
-	t_stack	*node;
-
-	node = a;
-	if (a)
-	{
-		printf("Stack A :\n");
-		while (node->next != NULL)
-		{
-			printf("%d : [%d] | %d\n", node->value, node->index,
-				node->above_median);
-			node = node->next;
-		}
-		printf("%d : [%d] | %d\n", node->value, node->index,
-			node->above_median);
-	}
-}
-
-void	print_target(t_stack *a)
-{
-	t_stack	*node;
-
-	node = a;
-	if (a)
-	{
-		printf("Stack A :\n");
-		while (node->next != NULL)
-		{
-			if (node->target)
-				printf("Valeur : %d, Target : %d\n", node->value,
-					node->target->value);
-			node = node->next;
-		}
-		if (node->target)
-			printf("Valeur : %d, Target : %d\n", node->value,
-				node->target->value);
-	}
 }

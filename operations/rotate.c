@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 19:57:42 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/19 21:20:02 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 18:54:51 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,13 @@ void	rr(t_stack **a, t_stack **b)
 	rotate(a);
 	rotate(b);
 	ft_putstr_fd("rr\n", 1);
+}
+
+
+void rotate_both(t_stack **a, t_stack **b, t_stack *cheap)
+{
+	while (*b != cheap->target && *a != cheap)
+		rr(a, b);
+	set_median(*a);
+	set_median(*b);
 }
