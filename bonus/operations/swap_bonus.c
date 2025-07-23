@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:43:32 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 21:17:30 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 00:59:49 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/push_swap_bonus.h"
 
 static void	swap(t_stack **stack)
 {
@@ -18,6 +18,8 @@ static void	swap(t_stack **stack)
 	t_stack	*second;
 	t_stack	*next;
 
+	if (!stack || !*stack)
+		return ;
 	first = *stack;
 	second = first->next;
 	next = second->next;
@@ -33,18 +35,15 @@ static void	swap(t_stack **stack)
 void	sa(t_stack **a)
 {
 	swap(a);
-	ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_stack **b)
 {
 	swap(b);
-	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
 	swap(a);
 	swap(b);
-	ft_putstr_fd("ss\n", 1);
 }

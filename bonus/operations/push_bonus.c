@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:29:34 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 21:17:21 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 01:10:14 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/push_swap_bonus.h"
 
 static void	push(t_stack **from, t_stack **to)
 {
@@ -18,7 +18,7 @@ static void	push(t_stack **from, t_stack **to)
 	t_stack	*second_from;
 	t_stack	*first_to;
 
-	if (!from || !*from)
+	if (!*from || !from)
 		return ;
 	first_from = *from;
 	second_from = first_from->next;
@@ -35,11 +35,9 @@ static void	push(t_stack **from, t_stack **to)
 void	pa(t_stack **a, t_stack **b)
 {
 	push(b, a);
-	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
 	push(a, b);
-	ft_putstr_fd("pb\n", 1);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init.c                                       :+:      :+:    :+:   */
+/*   stack_init_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:31:30 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 21:23:55 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 23:24:43 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/push_swap_bonus.h"
 
 t_stack	*find_last(t_stack *node)
 {
@@ -68,26 +68,4 @@ t_stack	**init_stack_a(t_stack **a, char **av)
 		y++;
 	}
 	return (a);
-}
-
-void	prep_for_push(t_stack **stack, t_stack *top, char name)
-{
-	while (*stack != top)
-	{
-		set_median(*stack);
-		if (name == 'a')
-		{
-			if (top->above_median == 1)
-				ra(stack);
-			else
-				rra(stack);
-		}
-		else if (name == 'b')
-		{
-			if (top->above_median == 1)
-				rb(stack);
-			else
-				rrb(stack);
-		}
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 17:54:30 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 20:38:02 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 21:07:33 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,11 @@
 
 int	stack_sorted(t_stack *a)
 {
-	t_stack	*node;
-	t_stack	*tmp;
-
-	node = a;
-	while (node != NULL)
+	while (a && a->next)
 	{
-		tmp = node;
-		while (tmp != NULL)
-		{
-			if (node->value > tmp->value)
-				return (0);
-			tmp = tmp->next;
-		}
-		node = node->next;
+		if (a->value > a->next->value)
+			return (0);
+		a = a->next;
 	}
 	return (1);
 }

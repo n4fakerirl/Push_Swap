@@ -1,43 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:53:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 01:17:38 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 01:12:41 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/push_swap_bonus.h"
 
-int	main(int ac, char **av)
+void	free_all(char *line, t_stack **a, t_stack **b)
+{
+	free(line);
+	free_errors(a);
+	free_errors(b);
+	write(2, "Error\n", 6);
+}
+
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	char	*line;
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (1);
-	else if (ac == 2)
-		av = ft_split(av[1], ' ');
-	if (!av)
-		return (1);
-	init_stack_a(&a, av + 1);
-	if (!a)
-		return (printf("Erreur\n"), 1);
-	if (!stack_sorted(a))
+	if (argc < 2)
+		return (0);
+	if (!init_stack_a(&a, argv + 1))
+		return (free_errors(&a), write(2, "Error\n", 6), 1);
+	while ((line = get_next_line(0)) != NULL)
 	{
-		if (stack_len(a) == 2)
-			sa(&a);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
+		if (!apply_instruction(line, &a, &b))
+			return (free_all(line, &a, &b), 1);
+		free(line);
 	}
-	print_stack(a, b);
+	if (stack_sorted(a) && !b)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 	free_errors(&a);
 	free_errors(&b);
+	return (0);
 }

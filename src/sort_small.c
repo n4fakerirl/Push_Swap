@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:38:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 20:40:13 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 21:08:45 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	sort_three(t_stack **a)
 
 	max = max_node(*a);
 	min = min_node(*a);
+	if (stack_len(*a) != 3)
+		return ;
 	if (max->next == NULL)
 		sa(a);
 	else if (max->prev == NULL && max->next == min)

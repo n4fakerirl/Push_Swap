@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:35:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 22:29:43 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 00:41:44 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
-# include "./libft/ft_printf/ft_printf.h"
-# include "./libft/libft.h"
+# include "../includes/libft/ft_printf/ft_printf.h"
+# include "../includes/libft/get_next_line.h"
+# include "../includes/libft/get_next_line_bonus.h"
+# include "../includes/libft/libft.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-// A enlever
-# include <stdio.h>
+#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -54,25 +54,8 @@ void				rrb(t_stack **b);
 void				rrr(t_stack **a, t_stack **b);
 void				pa(t_stack **a, t_stack **b);
 void				pb(t_stack **a, t_stack **b);
-t_stack				*min_node(t_stack *a);
-t_stack				*max_node(t_stack *a);
-void				sort_three(t_stack **a);
-void				set_median(t_stack *stack);
-void				sort_stacks(t_stack **stack_a, t_stack **b);
-void				set_target(t_stack *node, t_stack *b);
-void				push_cost(t_stack *a, t_stack *b);
-t_stack				*find_cheapest(t_stack *a);
-void				init_nodes_a(t_stack *a, t_stack *b);
-void				move_a_to_b(t_stack **a, t_stack **b);
-void				rotate_both(t_stack **a, t_stack **b, t_stack *cheap);
-void				rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheap);
-void				prep_for_push(t_stack **stack, t_stack *top, char name);
-void				init_nodes_b(t_stack *a, t_stack *b);
-
-// DELETE
-void				print_stack(t_stack *a, t_stack *b);
-void				print_stack2(t_stack *a, t_stack *b);
-void				print_cost(t_stack *a);
-void				print_target(t_stack *a);
+int					ft_strcmp(const char *s1, const char *s2);
+int					error_and_exit(void);
+int					apply_instruction(char *line, t_stack **a, t_stack **b);
 
 #endif

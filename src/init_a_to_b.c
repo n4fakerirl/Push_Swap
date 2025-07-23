@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:33:19 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 20:37:55 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/23 21:34:21 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,15 @@ void	set_target(t_stack *a, t_stack *b)
 		best_target = NULL;
 		while (current_b)
 		{
-			if (current_b->value < current_a->value)
+			if (current_b->value > current_a->value)
 			{
-				if (!best_target || current_b->value > best_target->value)
+				if (!best_target || current_b->value < best_target->value)
 					best_target = current_b;
 			}
 			current_b = current_b->next;
 		}
 		if (!best_target)
-			best_target = max_node(b);
+			best_target = min_node(b);
 		current_a->target = best_target;
 		current_a = current_a->next;
 	}
