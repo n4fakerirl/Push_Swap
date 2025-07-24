@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:43:32 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 21:17:30 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:47:40 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	swap(t_stack **stack)
 	t_stack	*second;
 	t_stack	*next;
 
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
 	first = *stack;
 	second = first->next;
 	next = second->next;

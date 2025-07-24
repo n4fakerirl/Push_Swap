@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:32:58 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 18:49:57 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:58:27 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	move_a_to_b(t_stack **a, t_stack **b)
 	cheap = find_cheapest(*a);
 	if (cheap->above_median && cheap->target->above_median)
 		rotate_both(a, b, cheap);
-	else if (!(cheap->above_median) && (cheap->target->above_median))
+	else if (!(cheap->above_median) && (!(cheap->target->above_median)))
 		rev_rotate_both(a, b, cheap);
 	prep_for_push(a, cheap, 'a');
 	prep_for_push(b, cheap->target, 'b');

@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 17:54:30 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 21:07:33 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:53:38 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,11 @@ t_stack	*find_cheapest(t_stack *a)
 	cheapest_node = node;
 	while (node != NULL)
 	{
+		node->cheapest = false;
 		if (node->push_cost < cheapest_node->push_cost)
 			cheapest_node = node;
 		node = node->next;
 	}
+	cheapest_node->cheapest = true;
 	return (cheapest_node);
 }

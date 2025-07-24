@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:33:19 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 19:29:32 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:56:03 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	set_median(t_stack *stack)
 	}
 }
 
-void	set_target(t_stack *a, t_stack *b)
+void	set_target_a_to_b(t_stack *a, t_stack *b)
 {
 	t_stack	*current_a;
 	t_stack	*current_b;
@@ -46,17 +46,44 @@ void	set_target(t_stack *a, t_stack *b)
 		best_target = NULL;
 		while (current_b)
 		{
-			if (current_b->value > current_a->value)
+			if (current_b->value < current_a->value)
 			{
-				if (!best_target || current_b->value < best_target->value)
+				if (!best_target || current_b->value > best_target->value)
 					best_target = current_b;
 			}
 			current_b = current_b->next;
 		}
 		if (!best_target)
-			best_target = min_node(b);
+			best_target = max_node(b);
 		current_a->target = best_target;
 		current_a = current_a->next;
+	}
+}
+
+void	set_target_b_to_a(t_stack *b, t_stack *a)
+{
+	t_stack	*current_b;
+	t_stack	*current_a;
+	t_stack	*best_target;
+
+	current_b = b;
+	while (current_b)
+	{
+		current_a = a;
+		best_target = NULL;
+		while (current_a)
+		{
+			if (current_a->value > current_b->value)
+			{
+				if (!best_target || current_a->value < best_target->value)
+					best_target = current_a;
+			}
+			current_a = current_a->next;
+		}
+		if (!best_target)
+			best_target = min_node(a);
+		current_b->target = best_target;
+		current_b = current_b->next;
 	}
 }
 
@@ -98,7 +125,7 @@ void	init_nodes_a(t_stack *a, t_stack *b)
 {
 	set_median(a);
 	set_median(b);
-	set_target(a, b);
+	set_target_a_to_b(a, b);
 	push_cost(a, b);
 	find_cheapest(a);
 }
@@ -107,7 +134,7 @@ void	init_nodes_b(t_stack *a, t_stack *b)
 {
 	set_median(b);
 	set_median(a);
-	set_target(b, a);
+	set_target_b_to_a(b, a);
 	push_cost(b, a);
 	find_cheapest(b);
 }
