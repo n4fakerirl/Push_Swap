@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:35:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 22:29:43 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:29:56 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_stack				*max_node(t_stack *a);
 void				sort_three(t_stack **a);
 void				set_median(t_stack *stack);
 void				sort_stacks(t_stack **stack_a, t_stack **b);
-void				set_target(t_stack *node, t_stack *b);
+void set_target(t_stack *node, t_stack *b);
 void				push_cost(t_stack *a, t_stack *b);
 t_stack				*find_cheapest(t_stack *a);
 void				init_nodes_a(t_stack *a, t_stack *b);

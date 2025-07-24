@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:53:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 01:12:41 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 15:00:38 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,4 @@ int	main(int argc, char **argv)
 		write(1, "KO\n", 3);
 	free_errors(&a);
 	free_errors(&b);
-	return (0);
 }

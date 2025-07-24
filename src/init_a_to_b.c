@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:33:19 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 21:34:21 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:29:32 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	set_median(t_stack *stack)
 	while (node != NULL)
 	{
 		node->index = i;
-		if (i <= (len / 2))
+		if (i < (len / 2))
 			node->above_median = true;
 		else
 			node->above_median = false;
@@ -64,6 +64,8 @@ void	push_cost(t_stack *a, t_stack *b)
 {
 	int		len_a;
 	int		len_b;
+	int		cost_a;
+	int		cost_b;
 	t_stack	*node;
 
 	node = a;
@@ -71,13 +73,23 @@ void	push_cost(t_stack *a, t_stack *b)
 	len_b = stack_len(b);
 	while (node != NULL)
 	{
-		node->push_cost = node->index;
-		if (node->above_median == 0)
-			node->push_cost = len_a - node->index;
-		if (node->target->above_median == 1)
-			node->push_cost += node->target->index;
+		if (node->above_median)
+			cost_a = node->index;
 		else
-			node->push_cost += len_b - node->target->index;
+			cost_a = len_a - node->index;
+		if (node->target->above_median)
+			cost_b = node->target->index;
+		else
+			cost_b = len_b - node->target->index;
+		if (node->above_median == node->target->above_median)
+		{
+			if (cost_a > cost_b)
+				node->push_cost = cost_a;
+			else
+				node->push_cost = cost_b;
+		}
+		else
+			node->push_cost = cost_a + cost_b;
 		node = node->next;
 	}
 }

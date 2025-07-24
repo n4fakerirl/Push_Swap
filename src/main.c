@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:53:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 01:17:38 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:31:40 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&a, &b);
 	}
-	print_stack(a, b);
 	free_errors(&a);
 	free_errors(&b);
 }
