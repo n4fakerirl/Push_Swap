@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:32:58 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 19:58:27 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/29 12:56:16 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	min_on_top(t_stack **a)
 		else
 			rra(a);
 	}
+	set_median(*a);
 }
 
 void	sort_stacks(t_stack **stack_a, t_stack **stack_b)
