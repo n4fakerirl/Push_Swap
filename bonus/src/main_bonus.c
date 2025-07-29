@@ -6,11 +6,12 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:53:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 15:00:38 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:45:16 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap_bonus.h"
+#include <stdio.h>
 
 void	free_all(char *line, t_stack **a, t_stack **b)
 {
@@ -20,7 +21,23 @@ void	free_all(char *line, t_stack **a, t_stack **b)
 	write(2, "Error\n", 6);
 }
 
-int	main(int argc, char **argv)
+int	read_fd(char *line, t_stack *a, t_stack *b)
+{
+	while (line != NULL)
+	{
+		if (!apply_instruction(line, &a, &b))
+			return (free_all(line, &a, &b), 0);
+		free(line);
+		line = get_next_line(0);
+	}
+	if (stack_sorted(a) && !b)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	return (1);
+}
+
+int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -28,20 +45,21 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc < 2)
+	if (ac < 2)
 		return (0);
-	if (!init_stack_a(&a, argv + 1))
-		return (free_errors(&a), write(2, "Error\n", 6), 1);
-	while ((line = get_next_line(0)) != NULL)
+	else if (ac == 2)
 	{
-		if (!apply_instruction(line, &a, &b))
-			return (free_all(line, &a, &b), 1);
-		free(line);
+		av = ft_split(av[1], ' ');
+		if (!av)
+			return (1);
+		if (!init_stack_a(&a, av))
+			return (free_errors(&a), write(2, "Error\n", 6), 1);
 	}
-	if (stack_sorted(a) && !b)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	if (!init_stack_a(&a, av + 1))
+		return (free_errors(&a), write(2, "Error\n", 6), 1);
+	line = get_next_line(0);
+	if (!read_fd(line, a, b))
+		return (0);
 	free_errors(&a);
 	free_errors(&b);
 }

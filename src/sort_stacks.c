@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:32:58 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/29 12:56:16 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:10:40 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,15 @@ void	move_a_to_b(t_stack **a, t_stack **b)
 
 void	move_b_to_a(t_stack **a, t_stack **b)
 {
-	prep_for_push(a, (*b)->target, 'a');
+	t_stack	*cheapest;
+
+	cheapest = find_cheapest(*b);
+	if (cheapest->above_median && cheapest->target->above_median)
+		rotate_both(b, a, cheapest);
+	else if (!(cheapest->above_median) && !(cheapest->target->above_median))
+		rev_rotate_both(b, a, cheapest);
+	prep_for_push(b, cheapest, 'b');
+	prep_for_push(a, cheapest->target, 'a');
 	pa(a, b);
 }
 
@@ -59,7 +67,8 @@ void	sort_stacks(t_stack **stack_a, t_stack **stack_b)
 		init_nodes_a(*stack_a, *stack_b);
 		move_a_to_b(stack_a, stack_b);
 	}
-	sort_three(stack_a);
+	if (!stack_sorted(*stack_a))
+		sort_three(stack_a);
 	while (*stack_b)
 	{
 		init_nodes_b(*stack_a, *stack_b);

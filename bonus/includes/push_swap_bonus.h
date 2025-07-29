@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:35:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 00:41:44 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:00:55 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdio.h>
 
 typedef struct s_stack
 {

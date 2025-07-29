@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 19:57:42 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 00:59:54 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:01:48 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	rotate(t_stack **stack)
 	t_stack	*next;
 	t_stack	*last;
 
-	if (!stack || !*stack)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	first = *stack;
 	next = first->next;

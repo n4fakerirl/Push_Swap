@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 23:50:14 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 01:08:01 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:07:00 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	apply_instruction(char *line, t_stack **a, t_stack **b)
 	else if (!ft_strncmp(line, "ra\n", 3))
 		ra(a);
 	else if (!ft_strncmp(line, "rb\n", 3))
-		rb(b); // ❗ Tu avais `a` ici avant !
+		rb(b);
 	else if (!ft_strncmp(line, "rr\n", 3))
 		rr(a, b);
 	else if (!ft_strncmp(line, "rra\n", 4))
@@ -40,4 +40,3 @@ int	apply_instruction(char *line, t_stack **a, t_stack **b)
 		return (0);
 	return (1);
 }
-
