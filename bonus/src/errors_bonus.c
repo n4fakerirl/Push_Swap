@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 18:34:38 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/24 00:31:59 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:54:33 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,24 @@ void	free_errors(t_stack **a)
 		node = next;
 	}
 	*a = NULL;
+}
+
+void	free_both(t_stack **a, t_stack **b)
+{
+	t_stack	*node;
+	t_stack	*next;
+
+	free_errors(a);
+	if (!b || !*b)
+		return ;
+	node = *b;
+	while (node != NULL)
+	{
+		next = node->next;
+		free(node);
+		node = next;
+	}
+	*b = NULL;
 }
 
 int	error_and_exit(void)

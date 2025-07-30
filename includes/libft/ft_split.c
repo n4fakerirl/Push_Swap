@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 15:13:04 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/19 17:13:13 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 19:20:06 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ void	ft_free(char **tab)
 	int	i;
 
 	i = 0;
-	if (!tab)
-		return ;
 	while (tab[i])
 	{
 		free(tab[i]);
@@ -92,10 +90,12 @@ static char	**ft_ft(char const *s, char c, char **result)
 
 char	**ft_split(char const *s, char c)
 {
+	int		i;
 	char	**result;
 	int		count;
 
 	count = count_words(s, c);
+	i = 0;
 	if (s[0] == '\0')
 	{
 		result = malloc(sizeof(char *) * 1);

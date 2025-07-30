@@ -6,11 +6,12 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:37:48 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/19 16:37:44 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:42:38 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 long	ft_atol(const char *nptr)
 {
@@ -25,6 +26,8 @@ long	ft_atol(const char *nptr)
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
+		if (!ft_isdigit(nptr[i + 1]))
+			return ((long)INT_MAX + 1);
 		if (nptr[i] == '-')
 			sign *= -1;
 		i++;

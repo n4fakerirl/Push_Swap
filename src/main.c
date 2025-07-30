@@ -6,22 +6,23 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:53:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/29 17:53:34 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 19:13:45 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
-void	check_sorted(t_stack *a, t_stack *b)
+void	check_sorted(t_stack **a, t_stack **b)
 {
-	if (!stack_sorted(a))
+	if (!stack_sorted(*a))
 	{
-		if (stack_len(a) == 2)
-			sa(&a);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
+		if (stack_len(*a) == 2)
+			sa(a);
+		else if (stack_len(*a) == 3)
+			sort_three(a);
 		else
-			sort_stacks(&a, &b);
+			sort_stacks(a, b);
 	}
 }
 
@@ -41,14 +42,15 @@ int	main(int ac, char **av)
 		split = ft_split(av[1], ' ');
 		if (!split)
 			return (1);
-		init_stack_a(&a, split);
+		if (!init_stack_a(&a, split))
+			return (ft_free(split), ft_putstr_fd("Erreur\n", 1), 1);
 		ft_free(split);
 	}
 	else
 		init_stack_a(&a, av + 1);
 	if (!a)
-		return (ft_putstr_fd("Erreur\n", 1), 1);
-	check_sorted(a, b);
-	free_errors(&a);
-	free_errors(&b);
+		return (free_err(&a), free_err(&b), ft_putstr_fd("Erreur\n", 1), 1);
+	check_sorted(&a, &b);
+	free_err(&a);
+	free_err(&b);
 }

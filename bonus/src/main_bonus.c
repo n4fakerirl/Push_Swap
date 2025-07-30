@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:53:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/29 16:45:16 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 19:02:58 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,28 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 	char	*line;
+	char	**split;
 
 	a = NULL;
 	b = NULL;
+	split = NULL;
 	if (ac < 2)
 		return (0);
 	else if (ac == 2)
 	{
-		av = ft_split(av[1], ' ');
-		if (!av)
+		split = ft_split(av[1], ' ');
+		if (!split)
 			return (1);
-		if (!init_stack_a(&a, av))
-			return (free_errors(&a), write(2, "Error\n", 6), 1);
+		if (!init_stack_a(&a, split))
+			return (ft_putstr_fd("Error\n", 1), ft_free(split), 1);
+		ft_free(split);
 	}
-	if (!init_stack_a(&a, av + 1))
+	else if (!init_stack_a(&a, av + 1))
 		return (free_errors(&a), write(2, "Error\n", 6), 1);
 	line = get_next_line(0);
 	if (!read_fd(line, a, b))
 		return (0);
 	free_errors(&a);
 	free_errors(&b);
+	//free_both(&a, &b);
 }

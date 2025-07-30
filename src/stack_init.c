@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:31:30 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/23 21:23:55 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:19:45 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ t_stack	**init_stack_a(t_stack **a, char **av)
 	while (av[y])
 	{
 		if (error_syntax(av[y]))
-			return (free_errors(a), NULL);
+			return (free_err(a), NULL);
 		nbr = ft_atol(av[y]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			return (free_errors(a), NULL);
+			return (free_err(a), NULL);
 		if (error_duplicate(*a, (int)nbr))
-			return (free_errors(a), NULL);
+			return (free_err(a), NULL);
 		append_node(a, (int)nbr);
 		y++;
 	}

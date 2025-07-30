@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:35:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/29 17:51:42 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:18:31 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ typedef struct s_stack
 
 int					error_syntax(char *str);
 int					error_duplicate(t_stack *node, int nbr);
-void				free_errors(t_stack **a);
+void				free_err(t_stack **a);
 void				set_target_a_to_b(t_stack *a, t_stack *b);
 void				set_target_b_to_a(t_stack *b, t_stack *a);
 int					calculate_cost(int index, int len, int above_median);
 void				push_cost_a_to_b(t_stack **a, t_stack **b);
 void				push_cost_b_to_a(t_stack **b, t_stack **a);
-void				check_sorted(t_stack *a, t_stack *b);
+void				check_sorted(t_stack **a, t_stack **b);
 void				sort_three(t_stack **a);
 void				set_median(t_stack *stack);
 void				init_nodes_a(t_stack *a, t_stack *b);

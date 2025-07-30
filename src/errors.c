@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 18:34:38 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/19 21:22:46 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:18:17 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	error_duplicate(t_stack *node, int nbr)
 		return (0);
 }
 
-void	free_errors(t_stack **a)
+void	free_err(t_stack **a)
 {
 	t_stack	*node;
 	t_stack	*next;

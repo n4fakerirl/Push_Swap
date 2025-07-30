@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:35:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/29 16:00:55 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:54:50 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ void				pb(t_stack **a, t_stack **b);
 int					ft_strcmp(const char *s1, const char *s2);
 int					error_and_exit(void);
 int					apply_instruction(char *line, t_stack **a, t_stack **b);
+void				free_both(t_stack **a, t_stack **b);
 
 #endif
