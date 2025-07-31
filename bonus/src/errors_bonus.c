@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 18:34:38 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/30 18:54:33 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 20:01:20 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	free_both(t_stack **a, t_stack **b)
 
 int	error_and_exit(void)
 {
-	ft_putstr_fd("Erreur\n", 1);
+	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 	return (0);
 }

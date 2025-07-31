@@ -6,17 +6,17 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:35:20 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/30 18:54:50 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 19:32:40 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-# include "../includes/libft/ft_printf/ft_printf.h"
-# include "../includes/libft/get_next_line.h"
-# include "../includes/libft/get_next_line_bonus.h"
-# include "../includes/libft/libft.h"
+# include "../../includes/libft/ft_printf/ft_printf.h"
+# include "../../includes/libft/get_next_line.h"
+# include "../../includes/libft/get_next_line_bonus.h"
+# include "../../includes/libft/libft.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdlib.h>

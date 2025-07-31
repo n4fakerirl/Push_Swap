@@ -6,12 +6,17 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 15:53:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/07/30 19:13:45 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/07/30 19:57:42 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
+
+void	print_error(void)
+{
+	write(2, "Error\n", 6);
+}
 
 void	check_sorted(t_stack **a, t_stack **b)
 {
@@ -43,13 +48,13 @@ int	main(int ac, char **av)
 		if (!split)
 			return (1);
 		if (!init_stack_a(&a, split))
-			return (ft_free(split), ft_putstr_fd("Erreur\n", 1), 1);
+			return (print_error(), ft_free(split), 1);
 		ft_free(split);
 	}
 	else
 		init_stack_a(&a, av + 1);
 	if (!a)
-		return (free_err(&a), free_err(&b), ft_putstr_fd("Erreur\n", 1), 1);
+		return (free_err(&a), free_err(&b), print_error(), 1);
 	check_sorted(&a, &b);
 	free_err(&a);
 	free_err(&b);
