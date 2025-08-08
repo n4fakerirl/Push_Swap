@@ -71,6 +71,10 @@ sa
 
 ## 🖼️ Note du projet
 
+<p align="center">
+  <img width="199" height="169" alt="image" src="https://github.com/user-attachments/assets/0f81d37f-0483-4001-948e-bc940ce6b006" />
+</p>
+
 ---
 
 ## 🫐 Auteur
